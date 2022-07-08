@@ -1,3 +1,7 @@
 const title = document.getElementById("title");
 
-title.innerText = "got me";
+function handleTitleClick() {
+  title.classList.toggle("clicked");
+}
+
+title.addEventListener("click", handleTitleClick);

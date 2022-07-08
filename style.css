@@ -1,1 +1,10 @@
-body { background-color: aqua;}
+body { background-color: whitesmoke;}
+
+h1 { 
+    color: cornflowerblue;
+    transition: color .5s ease-in-out;
+}
+
+.clicked {
+    color: tomato;
+}

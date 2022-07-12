@@ -1,7 +1,9 @@
-const title = document.getElementById("title");
+const loginForm = document.querySelector("#login-form");
+const loginInput = loginForm.querySelector("input");
+const loginButton = loginForm.querySelector("button");
 
-function handleTitleClick() {
-  title.classList.toggle("clicked");
+function onLoginBtnClick() {
+  const value = loginInput.value;
+  console.log(value);
 }
-
-title.addEventListener("click", handleTitleClick);
+loginButton.addEventListener("click", onLoginBtnClick);

@@ -1,0 +1,12 @@
+body { 
+    background-color: cornflowerblue;
+    transition: .5s ease-in-out;
+}
+
+h1 {
+    color: white;
+}
+
+.mobile {
+    background-color: purple;
+}

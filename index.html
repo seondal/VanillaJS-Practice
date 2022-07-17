@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/h1.css">
     <link rel="stylesheet" href="css/style.css">
     <title>TodoList Widget</title>
 </head>
 <body>
+    <div id="black-back"></div>
     <form class="hidden" id="login-form">
         <input required maxlength="15" type="text" placeholder="What is your name?" />
         <button>Log In</button>
     </form>
-    <h2 id="clock">00:00:00</h2>
-    <h1 class="hidden" id="greeting"></h1>
+    <div id="weather">
+        <span></span>
+        <br/>
+        <span></span>
+    </div>
+    <h1 id="clock">00:00:00</h1>
+    <h3 class="hidden" id="greeting"></h3>
     <form id="todo-form">
         <input type="text" placeholder="What will you do?" />
     </form>
     <ul id="todo-list"></ul>
     <div id="quote">
         <span></span>
-        <span></span>
-    </div>
-    <div id="weather">
-        <span></span>
+        <br/>
         <span></span>
     </div>
     <script src="js/greetings.js"></script>

@@ -2,16 +2,37 @@ const todoForm = document.getElementById("todo-form");
 const todoInput = todoForm.querySelector("input");
 const todoList = document.getElementById("todo-list");
 
-todoForm.addEventListener("submit", handleTodoSubmit);
+const TO_DO_S = "todos";
+let todos = [];
+const savedTodos = localStorage.getItem(TO_DO_S);
+if (savedTodos !== null) {
+  const parsedTodos = JSON.parse(savedTodos);
+  todos = parsedTodos;
+  todos.forEach(paintTodo);
+}
 
-function handleTodoSubmit(e) {
+function saveTodos() {
+  localStorage.setItem(TO_DO_S, JSON.stringify(todos));
+}
+
+todoForm.addEventListener("submit", addTodo);
+
+function addTodo(e) {
   e.preventDefault();
   const newTodo = todoInput.value;
   todoInput.value = "";
-  paintTodo(newTodo);
+
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  todos.push(newTodoObj);
+  saveTodos();
+
+  paintTodo(newTodoObj);
 }
 
-function paintTodo(newTodo) {
+function paintTodo(newTodoObj) {
   const todoLi = document.createElement("li");
   const todoSpan = document.createElement("span");
 
@@ -19,10 +40,11 @@ function paintTodo(newTodo) {
   deleteBtn.innerText = "❌";
   deleteBtn.addEventListener("click", deleteTodo);
 
+  todoLi.id = newTodoObj.id;
   todoLi.appendChild(todoSpan);
   todoLi.appendChild(deleteBtn);
 
-  todoSpan.innerText = newTodo;
+  todoSpan.innerText = newTodoObj.text;
   todoList.appendChild(todoLi);
 }
 

@@ -50,5 +50,6 @@ function paintTodo(newTodoObj) {
 
 function deleteTodo(e) {
   const li = e.target.parentElement;
+  todos = todos.filter((item) => item.id !== parseInt(li.id));
   li.remove();
 }
